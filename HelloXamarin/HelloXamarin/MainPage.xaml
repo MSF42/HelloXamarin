@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloXamarin.MainPage">
+
+    <StackLayout BackgroundColor="AntiqueWhite" Padding="10">
+        <Button Text="Use the Force" BackgroundColor="LightGreen" Clicked="Button_Clicked"/>
+        <Label x:Name="SwapiLabel" Text="Star Wars Characters" FontSize="Medium" HorizontalTextAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+         
+            <ListView Grid.Row="1" x:Name="PersonsListView" SeparatorColor="LightGreen">
+                <ListView.Header>
+                    <Grid>
+                        <Label  FontAttributes="Bold" FontSize="Body" VerticalTextAlignment="Center">Name</Label>
+                        <Label Grid.Column="1" FontAttributes="Bold" FontSize="Body" VerticalTextAlignment="Center">Height (cm)</Label>
+                        <Label Grid.Column="2" FontAttributes="Bold" FontSize="Body" VerticalTextAlignment="Center">Mass (kg)</Label>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Body" VerticalTextAlignment="Center"/>
+                                <Label Grid.Column="1" Text="{Binding Height}" FontSize="Body" VerticalTextAlignment="Center"/>
+                                <Label Grid.Column="2" Text="{Binding Mass}" FontSize="Body" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell>
+                 
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+        
+            </ListView>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
